@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prime Clarity - Finance Redefined</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            background: #0a0a0a;
+            color: #ffffff;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1.5rem 5%;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: opacity 0.3s;
+        }
+
+        .nav-links a:hover {
+            opacity: 0.7;
+        }
+
+        .cta-button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 0.75rem 2rem;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 12rem 5% 8rem;
+            max-width: 1400px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 5rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #ffffff 0%, #a0a0a0 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero .tagline {
+            font-size: 1.5rem;
+            color: #b0b0b0;
+            margin-bottom: 3rem;
+            font-weight: 300;
+        }
+
+        .hero-description {
+            font-size: 1.1rem;
+            color: #909090;
+            max-width: 800px;
+            margin: 0 auto 3rem;
+            line-height: 1.8;
+        }
+
+        /* Features Grid */
+        .features {
+            padding: 6rem 5%;
+            background: linear-gradient(180deg, #0a0a0a 0%, #1a1a2e 100%);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .section-header p {
+            font-size: 1.2rem;
+            color: #909090;
+        }
+
+        .features-grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
+        }
+
+        .feature-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 3rem;
+            transition: transform 0.3s, border-color 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(102, 126, 234, 0.5);
+        }
+
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature-card p {
+            color: #909090;
+            line-height: 1.8;
+        }
+
+        /* Verticals Section */
+        .verticals {
+            padding: 6rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .vertical-item {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            margin-bottom: 6rem;
+            padding: 4rem;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .vertical-item:nth-child(even) {
+            direction: rtl;
+        }
+
+        .vertical-item:nth-child(even) > * {
+            direction: ltr;
+        }
+
+        .vertical-content h3 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .vertical-content h4 {
+            font-size: 1.3rem;
+            color: #b0b0b0;
+            margin-bottom: 1.5rem;
+            font-weight: 400;
+        }
+
+        .vertical-content p {
+            color: #909090;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .vertical-content ul {
+            list-style: none;
+            margin-top: 1.5rem;
+        }
+
+        .vertical-content ul li {
+            color: #b0b0b0;
+            padding: 0.75rem 0;
+            padding-left: 2rem;
+            position: relative;
+        }
+
+        .vertical-content ul li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-weight: bold;
+        }
+
+        .vertical-image {
+            width: 100%;
+            height: 400px;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.2) 0%, rgba(118, 75, 162, 0.2) 100%);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+        }
+
+        /* Process Section */
+        .process {
+            padding: 6rem 5%;
+            background: linear-gradient(180deg, #0a0a0a 0%, #1a1a2e 100%);
+        }
+
+        .process-steps {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .step {
+            display: grid;
+            grid-template-columns: 100px 1fr;
+            gap: 2rem;
+            margin-bottom: 3rem;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 20px;
+            border-left: 3px solid #667eea;
+        }
+
+        .step-number {
+            font-size: 3rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .step-content h4 {
+            font-size: 1.5rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .step-content p {
+            color: #909090;
+            line-height: 1.8;
+        }
+
+        /* Values Section */
+        .values {
+            padding: 6rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .value-card {
+            text-align: center;
+            padding: 3rem 2rem;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .value-card h4 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .value-card p {
+            color: #909090;
+            line-height: 1.8;
+        }
+
+        /* FAQ Section */
+        .faq {
+            padding: 6rem 5%;
+            background: linear-gradient(180deg, #1a1a2e 0%, #0a0a0a 100%);
+        }
+
+        .faq-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            margin-bottom: 1rem;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            width: 100%;
+            padding: 1.5rem 2rem;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.1rem;
+            text-align: left;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+        }
+
+        .faq-question:hover {
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            padding: 0 2rem;
+            color: #909090;
+            line-height: 1.8;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+            padding: 0 2rem 1.5rem;
+        }
+
+        .faq-item.active .faq-question::after {
+            content: "−";
+        }
+
+        .faq-question::after {
+            content: "+";
+            font-size: 1.5rem;
+            transition: transform 0.3s;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 8rem 5%;
+            text-align: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .cta-section h2 {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-section p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .cta-section .cta-button {
+            background: white;
+            color: #667eea;
+            font-size: 1.1rem;
+            padding: 1rem 3rem;
+        }
+
+        /* Work With Us Section */
+        .work-with-us {
+            padding: 6rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .video-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            height: 0;
+            overflow: hidden;
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.05);
+            margin-bottom: 3rem;
+            box-shadow: 0 20px 60px rgba(102, 126, 234, 0.3);
+        }
+
+        .video-wrapper iframe,
+        .video-wrapper video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 20px;
+        }
+
+        .video-cta {
+            text-align: center;
+            padding: 3rem;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .video-cta h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .video-cta p {
+            color: #909090;
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+        }
+
+        /* Footer */
+        footer {
+            padding: 3rem 5%;
+            background: #0a0a0a;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+            color: #606060;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .vertical-item {
+                grid-template-columns: 1fr;
+            }
+
+            .values-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section-header h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">PRIME CLARITY</div>
+            <ul class="nav-links">
+                <li><a href="#services">Services</a></li>
+                <li><a href="#verticals">Our Verticals</a></li>
+                <li><a href="#process">Process</a></li>
+                <li><a href="#work-with-us">Work With Us</a></li>
+                <li><a href="#faq">FAQ</a></li>
+            </ul>
+            <button class="cta-button">Get Started</button>
+        </div>
+    </nav>
+
+    <!-- Announcement Banner -->
+    <div class="announcement-banner">
+        <p>🌐 Visit our official website: <a href="https://primeclarity.ae" target="_blank" rel="noopener noreferrer">primeclarity.ae</a></p>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Finance Redefined.<br>Clarity Delivered.</h1>
+        <p class="tagline">The modern financial advisory experience that brings traditional expertise and digital innovation together.</p>
+        <p class="hero-description">Prime Clarity combines ACCA/CFA-level expertise with cutting-edge automation and AI to deliver unparalleled financial clarity to SMEs, startups, and ambitious entrepreneurs worldwide.</p>
+        <button class="cta-button" style="font-size: 1.1rem; padding: 1rem 3rem;">Book a Consultation</button>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="services">
+        <div class="section-header">
+            <h2>Why Prime Clarity?</h2>
+            <p>Traditional expertise meets modern innovation</p>
+        </div>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">📊</div>
+                <h3>Data-Driven Decisions</h3>
+                <p>Transform complex financial data into actionable insights. Our cloud-based systems provide real-time clarity on your business performance.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🎯</div>
+                <h3>CFO-Level Advisory</h3>
+                <p>Get strategic financial guidance without the full-time cost. Our senior experts deliver executive-level insights tailored to your business stage.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🤖</div>
+                <h3>Modern Automation</h3>
+                <p>Leverage AI and automation to streamline bookkeeping, VAT compliance, and financial reporting—saving time and reducing errors.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🎓</div>
+                <h3>Financial Education</h3>
+                <p>Learn through our digital courses and communities. Master Python for Finance, CFO frameworks, and business strategy from anywhere.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">✅</div>
+                <h3>Licensed & Credible</h3>
+                <p>Fully licensed in Abu Dhabi with ACCA-qualified professionals. Trust in traditional credibility, delivered with modern efficiency.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🌍</div>
+                <h3>Global Reach</h3>
+                <p>Serve UAE-based businesses through our Abu Dhabi firm, and access digital education globally through Prime Clarity Digital.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Verticals Section -->
+    <section class="verticals" id="verticals">
+        <div class="section-header">
+            <h2>Our Two Verticals</h2>
+            <p>Professional services and digital education, unified by clarity</p>
+        </div>
+
+        <div class="vertical-item">
+            <div class="vertical-content">
+                <h3>Accounting & Bookkeeping</h3>
+                <h4>Prime Clarity Accounting & Bookkeeping LLC</h4>
+                <p>A licensed professional services firm based in Abu Dhabi, delivering comprehensive financial services to SMEs, startups, and e-commerce businesses across the UAE.</p>
+                <ul>
+                    <li>Cloud-based bookkeeping and accounting</li>
+                    <li>VAT registration, filing, and compliance</li>
+                    <li>CFO-level advisory and strategic planning</li>
+                    <li>Financial reporting and analysis</li>
+                    <li>Business setup and regulatory support</li>
+                </ul>
+            </div>
+            <div class="vertical-image">📈</div>
+        </div>
+
+        <div class="vertical-item">
+            <div class="vertical-content">
+                <h3>Digital Education</h3>
+                <h4>Prime Clarity Digital</h4>
+                <p>Our global arm creating digital courses, products, and communities that simplify complex financial concepts and empower entrepreneurs worldwide.</p>
+                <ul>
+                    <li>Python for Finance certification programs</li>
+                    <li>CFO-level Clarity masterclasses</li>
+                    <li>Financial literacy courses for entrepreneurs</li>
+                    <li>Applied finance and business strategy training</li>
+                    <li>Private communities and mentorship programs</li>
+                </ul>
+            </div>
+            <div class="vertical-image">🎓</div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="process" id="process">
+        <div class="section-header">
+            <h2>Our Process</h2>
+            <p>From first contact to financial mastery</p>
+        </div>
+        <div class="process-steps">
+            <div class="step">
+                <div class="step-number">01</div>
+                <div class="step-content">
+                    <h4>Discovery & Assessment</h4>
+                    <p>We begin by understanding your business, current financial state, and goals. Whether you need accounting services or education, we tailor our approach to your unique needs.</p>
+                </div>
+            </div>
+            <div class="step">
+                <div class="step-number">02</div>
+                <div class="step-content">
+                    <h4>Strategic Planning</h4>
+                    <p>Our experts design a customized roadmap—whether it's implementing cloud accounting systems, creating a CFO advisory plan, or enrolling in targeted courses.</p>
+                </div>
+            </div>
+            <div class="step">
+                <div class="step-number">03</div>
+                <div class="step-content">
+                    <h4>Implementation & Execution</h4>
+                    <p>We deliver results through modern tools, automation, and hands-on expertise. Your dedicated team ensures seamless execution and continuous support.</p>
+                </div>
+            </div>
+            <div class="step">
+                <div class="step-number">04</div>
+                <div class="step-content">
+                    <h4>Ongoing Clarity & Control</h4>
+                    <p>Receive regular insights, reports, and strategic guidance. We ensure you maintain full financial control and clarity as your business grows.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Values Section -->
+    <section class="values">
+        <div class="section-header">
+            <h2>Built on Three Pillars</h2>
+            <p>The foundation of everything we do</p>
+        </div>
+        <div class="values-grid">
+            <div class="value-card">
+                <h4>Clarity</h4>
+                <p>We simplify the complex. Every report, every insight, every course is designed to give you crystal-clear understanding and confidence.</p>
+            </div>
+            <div class="value-card">
+                <h4>Credibility</h4>
+                <p>Built by ACCA/CFA-trained professionals with decades of experience. Our advice is rooted in proven frameworks and real-world expertise.</p>
+            </div>
+            <div class="value-card">
+                <h4>Control</h4>
+                <p>Your business, your data, your decisions. We empower you with the tools, knowledge, and systems to take full control of your financial future.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq" id="faq">
+        <div class="section-header">
+            <h2>Frequently Asked Questions</h2>
+        </div>
+        <div class="faq-container">
+            <div class="faq-item">
+                <button class="faq-question">
+                    What makes Prime Clarity different from traditional accounting firms?
+                </button>
+                <div class="faq-answer">
+                    Prime Clarity combines the credibility of ACCA-qualified professionals with modern cloud-based systems, automation, and AI. We don't just handle compliance—we provide CFO-level strategic insights and empower you through digital education. Our dual approach means you get both professional services and the knowledge to master finance yourself.
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">
+                    Is Prime Clarity licensed and regulated?
+                </button>
+                <div class="faq-answer">
+                    Yes. Prime Clarity Accounting & Bookkeeping LLC is a fully licensed professional services firm operating in Abu Dhabi, UAE. We adhere to all local regulations and international accounting standards, ensuring your business remains compliant.
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">
+                    Who do you typically work with?
+                </button>
+                <div class="faq-answer">
+                    We work with SMEs, startups, and e-commerce businesses in the UAE who need professional accounting and advisory services. Through Prime Clarity Digital, we serve entrepreneurs, students, and professionals worldwide who want to master financial literacy and business strategy.
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">
+                    What is Prime Clarity Digital?
+                </button>
+                <div class="faq-answer">
+                    Prime Clarity Digital is our global education arm. We create courses, digital products, and communities teaching Python for Finance, CFO-level frameworks, financial literacy, and applied business strategy. It's designed for anyone who wants to take control of their financial knowledge.
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">
+                    Can I access your services remotely?
+                </button>
+                <div class="faq-answer">
+                    Absolutely. Our cloud-based systems allow us to work with clients across the UAE seamlessly. Prime Clarity Digital courses and communities are accessible globally from anywhere with an internet connection.
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">
+                    What tools and software do you use?
+                </button>
+                <div class="faq-answer">
+                    We leverage modern cloud-based accounting platforms, automation tools, and AI-powered analytics to deliver real-time insights and efficiency. We'll recommend and implement systems that best fit your business needs.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Work With Us Section -->
+    <section class="work-with-us" id="work-with-us">
+        <div class="section-header">
+            <h2>Work With Us</h2>
+            <p>Discover how Prime Clarity can transform your financial future</p>
+        </div>
+        <div class="video-container">
+            <div class="video-wrapper">
+                <!-- Replace the src URL below with your actual video URL -->
+                <iframe 
+                    src="https://www.youtube.com/embed/YOUR_VIDEO_ID" 
+                    title="Prime Clarity Video Sales Letter" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen>
+                </iframe>
+                <!-- Alternative: For direct video files, use this instead of iframe:
+                <video controls>
+                    <source src="YOUR_VIDEO_URL.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                -->
+            </div>
+            <div class="video-cta">
+                <h3>Ready to get started?</h3>
+                <p>Let's discuss how we can bring clarity to your finances</p>
+                <button class="cta-button" style="font-size: 1.1rem; padding: 1rem 3rem;">Schedule a Call</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <h2>Ready to achieve financial clarity?</h2>
+        <p>Whether you need professional accounting services or want to master finance yourself, we're here to help.</p>
+        <button class="cta-button">Book Your Consultation</button>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Prime Clarity. All rights reserved.</p>
+        <p>Prime Clarity Accounting & Bookkeeping LLC | Licensed in Abu Dhabi, UAE</p>
+    </footer>
+
+    <script>
+        // FAQ Accordion
+        document.querySelectorAll('.faq-question').forEach(button => {
+            button.addEventListener('click', () => {
+                const faqItem = button.parentElement;
+                const wasActive = faqItem.classList.contains('active');
+                
+                document.querySelectorAll('.faq-item').forEach(item => {
+                    item.classList.remove('active');
+                });
+                
+                if (!wasActive) {
+                    faqItem.classList.add('active');
+                }
+            });
+        });
+
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
